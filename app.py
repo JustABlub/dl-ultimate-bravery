@@ -23,9 +23,9 @@ def generate_items(build_type, game_phase, k, used=None):
         item_bias = [15, 15, 70]
 
     if game_phase == "early":
-        soul_bias = [50, 30, 15, 5, 0]
+        soul_bias = [30, 60, 7, 3, 0]
     elif game_phase == "mid":
-        soul_bias = [0, 20, 50, 30, 0]
+        soul_bias = [0, 15, 55, 30, 0]
     elif game_phase == "late":
         soul_bias = [0, 0, 0, 1, 0]
 
