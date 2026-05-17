@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Deadlock Ultimate Bravery</title>
+  </head>
+  <body>
+    <h1>Deadlock Ultimate Bravery</h1>
+    <p>Only your drafted heroes can be queued. Who you choose to prio is up to you.</p>
+    <p>You have to build all items in your randomly generated build in their respective phases of the game. There's no specific order and you can buy other items as long as you buy everything in the random build</p>
+    <h2>Drafted Heroes</h2>
+    <div class="draft">
+      {% for hero in draft %}
+        <img src="{{ url_for('static', filename='heroes/' + hero + '.png') }}" alt="{{ hero }}">
+      {% endfor %}
+    </div>
+    <h2>Random Build</h2>
+    <h3>Early Game</h3>
+    <ul>
+      {% for item in early %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    <h3>Mid Game</h3>
+    <ul>
+      {% for item in mid %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    <h3>Late Game</h3>
+    <ul>
+      {% for item in late %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
