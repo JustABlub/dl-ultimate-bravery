@@ -16,16 +16,16 @@ def generate_items(build_type, game_phase, k, used=None):
     if used is None:
         used = set()
     if build_type == "Spirit":
-        item_bias = [70, 15, 15]
+        item_bias = [60, 20, 20]
     elif build_type == "Vitality":
-        item_bias = [15, 70, 15]
+        item_bias = [20, 60, 20]
     elif build_type == "Weapon":
-        item_bias = [15, 15, 70]
+        item_bias = [20, 20, 60]
 
     if game_phase == "early":
-        soul_bias = [50, 30, 15, 5, 0]
+        soul_bias = [30, 60, 7, 3, 0]
     elif game_phase == "mid":
-        soul_bias = [0, 20, 50, 30, 0]
+        soul_bias = [0, 15, 55, 30, 0]
     elif game_phase == "late":
         soul_bias = [0, 0, 0, 1, 0]
 
