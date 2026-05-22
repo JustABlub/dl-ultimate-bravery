@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
+import json
+
 import requests
 from bs4 import BeautifulSoup
-import json
 
 itempage = "https://deadlock.wiki/Items"
 
@@ -31,9 +32,9 @@ for item_type_tr in trs:
                 category_list[item_soul_value] = temp_arr
             except:
                 pass
-        master_list[title_span.get_text()] =  category_list
+        master_list[title_span.get_text()] = category_list
     except:
         pass
 
-with open('items.json', 'w') as fp:
+with open("items.json", "w") as fp:
     json.dump(master_list, fp, sort_keys=False, indent=4)

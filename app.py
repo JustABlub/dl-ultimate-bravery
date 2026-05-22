@@ -1,16 +1,19 @@
-from flask import Flask, render_template
-import random
 import json
+import random
 
-with open('./resources/characters.json') as f:
+from flask import Flask, render_template
+
+with open("./resources/characters.json") as f:
     characters = json.load(f)
 with open("./resources/items.json") as f:
     item_page = json.load(f)
 
 ITEM_TYPE = ["Spirit", "Vitality", "Weapon"]
 
+
 def generate_draft():
     return random.sample(population=characters, k=4)
+
 
 def generate_items(build_type, game_phase, k, used=None):
     if used is None:
@@ -44,14 +47,16 @@ def generate_items(build_type, game_phase, k, used=None):
         build_page.append(item)
     return build_page
 
+
 app = Flask(__name__)
+
 
 @app.route("/")
 def index():
     build_bias = random.choice(ITEM_TYPE)
     used = set()
     return render_template(
-        'index.html',
+        "index.html",
         draft=generate_draft(),
         early=generate_items(build_bias, "early", 4, used),
         mid=generate_items(build_bias, "mid", 4, used),

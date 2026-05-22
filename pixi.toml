@@ -1,0 +1,26 @@
+[workspace]
+authors = ["ArchZak <izear21@gmail.com>"]
+channels = ["conda-forge"]
+name = "dl-ultimate-bravery"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+format = { cmd = [
+    "ruff",
+    "check",
+    "--select",
+    "I",
+    "--fix",
+    "&&",
+    "ruff",
+    "format",
+    "--config",
+    ".ruff.toml",
+    "./"
+]}
+
+[dependencies]
+flask = ">=3.1.3,<4"
+gunicorn = ">=26.0.0,<27"
+ruff = ">=0.15.14,<0.16"
